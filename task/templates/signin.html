@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Signin</h1>
+
+{{ error }}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button>Signinp</button>
+</form>
+
+{% endblock %}

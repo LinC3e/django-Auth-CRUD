@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h1>Tasks</h1>
+<ul>
+{% for element in task %}
+    <li>
+        <a href="{% url 'task_detail' element.id %}">
+            {% if element.important %}
+            <h2 style="color: green;">{{ element.title }} </h2>
+                {% else %}
+                    <h2>{{ element.title }}</h2>
+                {% endif %}
+                    <p>{{ element.description }}</p>
+                    <p>{{ element.user.username}}</p>
+                    <p>{{ element.datecompleted|date:'M j Y:i' }}</p>
+        </a>
+    </li>
+
+{% endfor %}
+</ul>
+{% endblock %}
